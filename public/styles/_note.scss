@@ -1,0 +1,14 @@
+.note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #ccc;
+
+  a {
+    color: #ffcc00;
+    text-decoration: underline;
+
+    &:hover {
+      color: #ffd633;
+    }
+  }
+}

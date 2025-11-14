@@ -1,0 +1,67 @@
+#deckSection {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #4e4e4e;
+  border: 2px solid #ffcc00;
+  border-radius: 8px;
+  text-align: center;
+
+  #viewDeckBtn {
+    background-color: #ffcc00;
+    color: #1e1e1e;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: #ffd633;
+    }
+  }
+
+  .deck-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .deck-card {
+    background-color: #2e2e2e67;
+    border-radius: 6px;
+    padding: 0.5rem;
+    width: 100px;
+    text-align: center;
+
+    img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    p {
+      color: #ffcc00;
+      font-size: 0.7rem;
+      margin-top: 0.3rem;
+    }
+
+    button.remove-from-deck {
+      background-color: #ff6666;
+      color: #fff;
+      border: none;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.6rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 0.3rem;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background-color: #ff4444;
+      }
+    }
+  }
+}

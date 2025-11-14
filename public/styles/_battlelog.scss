@@ -1,0 +1,35 @@
+.battlelog {
+  margin-top: 1rem;
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+  padding: 1rem;
+  border-radius: 8px;
+
+  h3 {
+    color: #ffcc00;
+    margin-bottom: 0.5rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      color: #fff;
+      margin-bottom: 0.3rem;
+
+      strong {
+        color: #ffcc00;
+      }
+
+      em {
+        color: #ccc;
+      }
+
+      small {
+        color: #888;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

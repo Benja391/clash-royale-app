@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clash Royale App</title>
+  <!-- Compila styles/main.scss a styles/main.css -->
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Lilita+One&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="icon" href="/assets/images/logo-clash.ico" />
+</head>
+<body>
+
+<!-- LOGIN -->
+<section id="loginView" class="auth-view">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <h2>Ingresá</h2>
+      <input id="loginUser" type="text" placeholder="Usuario" />
+      <input id="loginPass" type="password" placeholder="Contraseña" />
+      <div class="auth-actions">
+        <button id="loginBtn" class="btn btn-primary">Iniciar sesión</button>
+        <button id="gotoRegisterBtn" class="btn btn-link">¿No tenés cuenta?</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRO -->
+<section id="registerView" class="auth-view" >
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <h2>Registrate</h2>
+      <input id="registerUser" type="text" placeholder="Usuario" />
+      <input id="registerPass" type="password" placeholder="Contraseña" />
+      <input id="registerPassConfirm" type="password" placeholder="Confirmar contraseña" />
+      <div class="auth-actions">
+        <button id="registerBtn" class="btn btn-accent">Crear cuenta</button>
+        <button id="gotoLoginBtn" class="btn btn-link">¿Ya tenés cuenta?</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- APP VIEW (ruta: #/app) -->
+  <div id="appView" class="app-view">
+    <header class="main-header">
+      <div class="header-inner">
+        <div>
+          <h1 class="app-title">Clash Royale App</h1>
+          <p class="subtitle small">Explorá cartas, jugadores y estadísticas</p>
+        </div>
+        <div class="header-actions">
+        
+        <div class="user-area">
+  <span class="username" id="sessionUser"></span>
+  <button id="logoutBtn" class="logout-btn">Cerrar sesión</button>
+</div>
+  
+        </div>
+      </div>
+    </header>
+
+ 
+
+
+    <main class="container">
+      <form id="searchForm" class="player-search" aria-label="Buscar jugador">
+        <input type="text" id="playerTag" placeholder="Tag del jugador (sin #)" required />
+        <button type="submit" class="btn btn-primary">Buscar</button>
+      </form>
+
+      <div id="cardControls" class="card-controls">
+        <input type="text" id="cardSearch" placeholder="Buscar carta por nombre" />
+        <select id="rarityFilter">
+          <option value="">Todas las rarezas</option>
+          <option value="common">Común</option>
+          <option value="rare">Especial</option>
+          <option value="epic">Épica</option>
+          <option value="legendary">Legendaria</option>
+          <option value="champion">Campeón</option>
+        </select>
+        <select id="alphaFilter"><option value="">Todas las letras</option></select>
+        <select id="elixirFilter">
+          <option value="">Todos los costes</option>
+          <option value="1">1 elixir</option>
+          <option value="2">2 elixir</option>
+          <option value="3">3 elixir</option>
+          <option value="4">4 elixir</option>
+          <option value="5">5 elixir</option>
+          <option value="6">6 elixir</option>
+          <option value="7">7 elixir</option>
+          <option value="8">8 elixir</option>
+          <option value="9">9+ elixir</option>
+        </select>
+        <select id="typeFilter">
+          <option value="">Todos los tipos</option>
+          <option value="Tropa">Tropa</option>
+          <option value="Hechizo">Hechizo</option>
+          <option value="Estructura">Estructura</option>
+        </select>
+
+        <button id="searchCardsBtn" class="btn btn-primary" type="button">Buscar cartas</button>
+        <button id="clearFiltersBtn" class="btn btn-ghost" type="button">Limpiar filtros</button>
+      </div>
+
+      <div id="result" class="result"></div>
+
+      <div id="deckSection" class="deck-section">
+        <button id="viewDeckBtn" class="btn btn-outline" type="button">Ver mazo</button>
+        <div id="deckView" class="deck-view"></div>
+      </div>
+    </main>
+    <button id="themeToggle" class="theme-toggle-fixed">Cambiar tema</button>
+
+
+    <footer class="main-footer">
+      <p>© <span id="year"></span> Clash Royale App — Creado por Benjamin</p>
+    </footer>
+  </div>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
