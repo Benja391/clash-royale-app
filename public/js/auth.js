@@ -1,3 +1,25 @@
+function showMessage(text, type = "success") {
+  const box = document.getElementById("appMessage");
+
+  box.textContent = text;
+
+  // limpiar clases previas
+  box.className = "cr-message";
+
+  // aplicar tipo
+  box.classList.add(type === "success" ? "cr-success" : "cr-error");
+
+  // mostrar
+  setTimeout(() => box.classList.add("cr-show"), 10);
+
+  // ocultar
+  setTimeout(() => {
+    box.classList.remove("cr-show");
+  }, 3000);
+}
+
+
+
 function switchView(viewId) {
   ['loginView', 'registerView', 'appView'].forEach(id => {
     const el = document.getElementById(id);
@@ -41,10 +63,13 @@ document.getElementById('registerBtn').addEventListener('click', () => {
   const users = JSON.parse(localStorage.getItem('users')) || {};
   if (users[user]) return;
 
-  users[user] = pass;
-  localStorage.setItem('users', JSON.stringify(users));
-  localStorage.setItem('sessionUser', user);
-  showApp();
+ users[user] = pass;
+localStorage.setItem('users', JSON.stringify(users));
+localStorage.setItem('sessionUser', user);
+
+showMessage(`Registro completado, ${user}!`, "success");
+showApp();
+
 });
 
 document.getElementById('loginBtn').addEventListener('click', () => {
@@ -53,9 +78,12 @@ document.getElementById('loginBtn').addEventListener('click', () => {
 
   const users = JSON.parse(localStorage.getItem('users')) || {};
   if (users[user] === pass) {
-    localStorage.setItem('sessionUser', user);
-    showApp();
-  }
+  localStorage.setItem('sessionUser', user);
+  showMessage(`Bienvenido de nuevo, ${user}!`, "success");
+  showApp();
+} else {
+  showMessage("Usuario o contraseña incorrectos", "error");
+}
 });
 
 document.getElementById('gotoRegisterBtn').addEventListener('click', () => {

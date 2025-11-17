@@ -1,6 +1,8 @@
 import { showDeck } from './deck.js';
 import { showCardDetails } from './modal.js';
 
+
+
 // 🔠 Diccionarios
 const rarityMap = {
   common: 'Común',
@@ -51,7 +53,7 @@ async function showCards(filters = getCurrentFilters()) {
   resultBox.innerHTML = 'Cargando cartas...';
 
   try {
-    const res = await fetch('/api/cards');
+    const res = await fetch('/.netlify/functions/cards');
     const cards = await res.json();
 
     let deck = JSON.parse(localStorage.getItem('deck')) || [];
