@@ -54,7 +54,12 @@ async function showCards(filters = getCurrentFilters()) {
 
   try {
     const res = await fetch('/.netlify/functions/cards');
-    const cards = await res.json();
+const data = await res.json();
+
+// Asegura que las cartas sean un array
+const cards = Array.isArray(data.items) ? data.items : [];
+
+console.log("CARTAS RECIBIDAS:", cards);
 
     let deck = JSON.parse(localStorage.getItem('deck')) || [];
     deck = deck.filter(card => typeof card === 'object' && card.id);

@@ -8,33 +8,20 @@ export async function handler(event, context) {
       },
     });
 
-    // Si la API falla
-    if (!response.ok) {
-      return {
-        statusCode: response.status,
-        body: JSON.stringify({ error: "Error obteniendo las cartas" }),
-      };
-    }
-
     const data = await response.json();
 
-    // Algunos endpoints devuelven objetos {items: []}
-    const cards = data.items || data;
+    // 🧪 Debug para ver qué devuelve realmente
+    console.log("API RAW RESPONSE:", data);
 
     return {
       statusCode: 200,
-      body: JSON.stringify(cards),
-      headers: {
-        "Content-Type": "application/json",
-      },
+      body: JSON.stringify(data), // devolvemos TODO
     };
   } catch (error) {
+    console.log("ERROR API:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({
-        error: "Error interno en Netlify Function",
-        details: error.message,
-      }),
+      body: "ERROR: " + error.toString(),
     };
   }
 }
