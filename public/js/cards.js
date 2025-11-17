@@ -53,11 +53,10 @@ async function showCards(filters = getCurrentFilters()) {
   resultBox.innerHTML = 'Cargando cartas...';
 
   try {
-    const res = await fetch('/.netlify/functions/cards');
-const data = await res.json();
+  const res = await fetch("/.netlify/functions/cards");
+const cards = await res.json();
 
-// Asegura que las cartas sean un array
-const cards = Array.isArray(data.items) ? data.items : [];
+
 
 console.log("CARTAS RECIBIDAS:", cards);
 

@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 export async function handler(event, context) {
   try {
     const response = await fetch("https://api.clashroyale.com/v1/cards", {
@@ -8,20 +6,24 @@ export async function handler(event, context) {
       },
     });
 
+    if (!response.ok) {
+      return {
+        statusCode: response.status,
+        body: JSON.stringify({ error: "API error", status: response.status }),
+      };
+    }
+
     const data = await response.json();
 
-    // 🧪 Debug para ver qué devuelve realmente
-    console.log("API RAW RESPONSE:", data);
-
+    // La API devuelve { items: [...] }
     return {
       statusCode: 200,
-      body: JSON.stringify(data), // devolvemos TODO
+      body: JSON.stringify(data.items),
     };
   } catch (error) {
-    console.log("ERROR API:", error);
     return {
       statusCode: 500,
-      body: "ERROR: " + error.toString(),
+      body: JSON.stringify({ error: error.toString() }),
     };
   }
 }
