@@ -37,7 +37,7 @@ function showApp() {
   if (!user) return;
 
   switchView('appView');
- document.getElementById('sessionUser').textContent = `👤 ${user}`;
+ document.getElementById('sessionUser').textContent = ` ${user}`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {

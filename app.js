@@ -1,5 +1,5 @@
 const express = require('express');
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+// const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 require('dotenv').config();
 
 const app = express();
@@ -73,11 +73,14 @@ app.get('/api/player/:tag/battlelog', async (req, res) => {
 
 app.get('/api/cards', async (req, res) => {
   try {
+    
     const response = await fetch('https://api.clashroyale.com/v1/cards', {
       headers: {
         Authorization: `Bearer ${process.env.CLASH_API_TOKEN}`
       }
     });
+
+       console.log("STATUS:", response.status); // ✅ ahora está después
 
     if (!response.ok) {
       return res.status(response.status).json({ error: 'No se pudo obtener las cartas' });
@@ -96,6 +99,7 @@ app.get('/api/card/:name', async (req, res) => {
   try {
     const response = await fetch(`https://api.clashroyale.com/v1/cards`, {
       headers: {
+
         Authorization: `Bearer ${process.env.CLASH_API_TOKEN}`
       }
     });

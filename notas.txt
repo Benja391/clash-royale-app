@@ -9,7 +9,7 @@ Descripcion: Aplicacion para relevar datos de la API de Clash Royale.
 Direcciones IP Permitidas: 190.210.193.136
 
 
-Comandos para correr : 
+Comandos para correr (en dos terminales separadas) : 
 SASS: npx sass --watch public/styles/main.scss public/styles/main.css
 SERVIDOR: node app.js
 

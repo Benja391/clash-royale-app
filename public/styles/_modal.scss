@@ -1,76 +1,130 @@
 #cardModal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
+  inset: 0;
+  
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
-  animation: fadeIn 0.4s ease-in-out;
+
+  animation: fadeIn 0.3s ease;
 
   .modal-inner {
-    background-color: #2e2e2e;
-    padding: 2rem;
-    border-radius: 16px;
-    max-width: 600px;
-    width: 90%;
-    box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
-    text-align: center;
-    color: #ffcc00;
+    background: linear-gradient(145deg, #2a2a2a, #1d1d1d);
+    
+    border-radius: 20px;
+
+    max-width: 640px;
+    width: 92%;
+
     position: relative;
+    text-align: center;
 
-    img {
-      width: 140px;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    border: 2px solid rgba(255, 204, 0, 0.4);
+
+    box-shadow:
+      0 0 25px rgba(255, 204, 0, 0.25),
+      inset 0 2px 6px rgba(0, 0, 0, 0.7);
+
+    color: #f5f5f5;
+
+
+    animation: slideUp 0.4s ease;
+  }
+
+  /* 🃏 Imagen de carta */
+  .modal-inner img {
+    width: 160px;
+    margin-bottom: 1.2rem;
+    border-radius: 12px;
+
+    box-shadow:
+      0 0 15px rgba(255, 204, 0, 0.4),
+      0 6px 20px rgba(0, 0, 0, 0.6);
+
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
     }
+  }
 
-    p {
-      color: #fff;
-      margin: 0.5rem 0;
-      font-size: 1rem;
+  /* 📜 Texto descriptivo */
+  .modal-inner p {
+    color: #eaeaea;
+    margin: 0.6rem 0;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* 🧠 Bloque técnico */
+  .modal-inner pre {
+    background: #141414;
+    color: #bbbbbb;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    text-align: left;
+    overflow-x: auto;
+    margin-top: 1.2rem;
+
+    border: 1px solid rgba(255, 204, 0, 0.2);
+  }
+
+  /* 🏆 Botón principal */
+  .modal-inner button {
+    margin-top: 1.8rem;
+  }
+
+  /* 🔙 Botón volver */
+  .modal-inner .back-button {
+    position: absolute;
+    top: 16px;
+    left: 18px;
+
+    background: rgba(255, 204, 0, 0.1);
+    border: none;
+    border-radius: 50%;
+
+    width: 36px;
+    height: 36px;
+
+    color: #ffd94a;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 204, 0, 0.2);
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
     }
+  }
+}
 
-    pre {
-      background-color: #1a1a1a;
-      color: #ccc;
-      padding: 1rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      text-align: left;
-      overflow-x: auto;
-      margin-top: 1rem;
-    }
+/* 🎬 Animaciones */
+@media (min-width: 1000px) {
+  #cardModal {
+    padding: 80px;
+  }
+}
 
-    button {
-      margin-top: 1.5rem;
-      padding: 0.6rem 1.2rem;
-      background-color: #ffcc00;
-      color: #1e1e1e;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-
-      &:hover {
-        background-color: #ffd633;
-      }
-    }
-
-    .back-button {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      background: none;
-      border: none;
-      color: #ffcc00;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

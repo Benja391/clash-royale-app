@@ -1,15 +1,29 @@
-@use 'base';
-@use 'form';
-@use 'card-controls';
-@use 'card';
-@use 'battlelog';
-@use 'card-list';
-@use 'modal';
-@use 'header-footer';
-@use 'note';
-@use 'animations';
-@use 'queries';
-@use 'inputs';
-@use 'theme';
-@use 'showDeck';
-@use 'logreg';
+@use 'base'; // Estilos globales y variables
+
+@use 'form'; // Estilos para formularios
+
+@use 'card-controls'; // Controles específicos de las cartas (añadir, eliminar, detalles)
+
+@use 'card'; // Estilos para la presentación de las cartas
+
+@use 'battlelog'; // Estilos para el Battle Log (registro de batallas)
+
+@use 'card-list'; // Estilos para la lista de cartas (catálogo)
+
+@use 'modal'; // Estilos para modales (detalles de cartas, confirmaciones)
+
+@use 'header-footer'; // Estilos para el encabezado y pie de página
+
+@use 'note'; // Estilos para notas o mensajes informativos
+
+@use 'animations'; // Animaciones para interacciones (hover, click, transiciones)
+
+@use 'queries'; // Media queries para responsividad
+
+@use 'inputs'; // Estilos para inputs, selects y botones (consistentes en toda la app)
+
+@use 'theme'; // Colores, fuentes y otros aspectos visuales para mantener la coherencia del diseño
+
+@use 'showDeck'; // Estilos específicos para la sección de mostrar el mazo guardado
+
+@use 'logreg'; // Estilos para las páginas de login y registro (si se implementan)

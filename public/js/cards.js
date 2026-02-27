@@ -53,7 +53,7 @@ async function showCards(filters = getCurrentFilters()) {
   resultBox.innerHTML = 'Cargando cartas...';
 
   try {
-  const res = await fetch("/.netlify/functions/cards");
+  const res = await fetch("/api/cards");
 const cards = await res.json();
 
 
@@ -68,7 +68,9 @@ console.log("CARTAS RECIBIDAS:", cards);
       const name = card.name.toLowerCase();
       const tipo = inferCardType(card.name);
       const nameMatch = name.includes(searchTerm);
-      const rarityMatch = rarity ? card.rarity === rarity : true;
+      const rarityMatch = rarity 
+  ? card.rarity.toLowerCase() === rarity.toLowerCase()
+  : true;
       const alphaMatch = alpha ? name.startsWith(alpha.toLowerCase()) : true;
       const typeMatch = type ? tipo === type : true;
       const elixirMatch = elixirValue
@@ -118,7 +120,7 @@ console.log("CARTAS RECIBIDAS:", cards);
         if (!exists) {
           deck.push({ id, name, img });
           localStorage.setItem('deck', JSON.stringify(deck));
-          btn.textContent = '✅ Agregado';
+          btn.textContent = ' Agregado';
           btn.classList.add('added');
           showDeck();
         }
