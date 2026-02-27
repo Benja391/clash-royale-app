@@ -274,9 +274,7 @@ form button {
   color: #f5f5f5;
   animation: slideUp 0.4s ease;
 }
-#cardModal {
-  /* 🃏 Imagen de carta */
-}
+
 #cardModal .modal-inner img {
   width: 160px;
   margin-bottom: 1.2rem;
@@ -287,18 +285,14 @@ form button {
 #cardModal .modal-inner img:hover {
   transform: scale(1.05);
 }
-#cardModal {
-  /* 📜 Texto descriptivo */
-}
+
 #cardModal .modal-inner p {
   color: #eaeaea;
   margin: 0.6rem 0;
   font-size: 1rem;
   line-height: 1.6;
 }
-#cardModal {
-  /* 🧠 Bloque técnico */
-}
+
 #cardModal .modal-inner pre {
   background: #141414;
   color: #bbbbbb;
@@ -310,15 +304,11 @@ form button {
   margin-top: 1.2rem;
   border: 1px solid rgba(255, 204, 0, 0.2);
 }
-#cardModal {
-  /* 🏆 Botón principal */
-}
+
 #cardModal .modal-inner button {
   margin-top: 1.8rem;
 }
-#cardModal {
-  /* 🔙 Botón volver */
-}
+
 #cardModal .modal-inner .back-button {
   position: absolute;
   top: 16px;
